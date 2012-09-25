@@ -107,13 +107,9 @@ public class MainActivity extends Activity
 	
 	
 	
-	/***
+	/***********************************
 	 * IGNORE THIS IT'S SCARY
-	 * @param fileUri
-	 * @param targetHeight
-	 * @param targetWidth
-	 * @return
-	 */
+	 ***********************************/
 	public Bitmap getThumbnailBitmap(Uri fileUri, int targetHeight, int targetWidth)
 	{		
 		BitmapFactory.Options options = new BitmapFactory.Options();
@@ -136,9 +132,9 @@ public class MainActivity extends Activity
 		
 		Bitmap bTemp = BitmapFactory.decodeFile(fileUri.getPath(), options);
 		
-		int rotatedHeight = Math.round(actualWidth/floatScale);
-		int rotatedWidth = Math.round(actualHeight/floatScale);
+//		int rotatedHeight = Math.round(actualWidth/floatScale);
+//		int rotatedWidth = Math.round(actualHeight/floatScale);
 		
-		return Bitmap.createBitmap(bTemp, 0, 0, rotatedHeight,rotatedWidth, matrix, true);
+		return Bitmap.createBitmap(bTemp, 0, 0, options.outWidth,options.outHeight, matrix, true);
 	}
 }
